@@ -1,5 +1,5 @@
 import { Search } from "lucide-react";
-import { useState } from "react";
+import { memo, useState } from "react";
 
 import { Button, DateRangePicker, Input, Stepper } from "@/components/ui";
 
@@ -23,7 +23,7 @@ const ListingFilters = ({ onChange }) => {
       <DateRangePicker
         value={dates}
         onChange={setDates}
-        minDate={new Date()} //Prevent from selecting dates from the past
+        minDate={new Date()}
         placeholder="Add dates"
       />
       <Stepper label="guest" value={guests} onChange={setGuests} />
@@ -34,4 +34,4 @@ const ListingFilters = ({ onChange }) => {
   );
 };
 
-export default ListingFilters;
+export default memo(ListingFilters);
