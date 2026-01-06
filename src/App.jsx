@@ -1,6 +1,7 @@
 import { Outlet } from "react-router-dom";
 
 import Devbar from "@/components/Devbar/Devbar";
+import Navbar from "@/components/Navbar";
 
 const App = () => {
   return (
@@ -9,6 +10,7 @@ const App = () => {
         <Devbar />
       </div>
       <div className="ml-[700px]">
+        <Navbar />
         <Outlet />
       </div>
     </>

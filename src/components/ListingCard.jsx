@@ -1,16 +1,17 @@
 import { DollarSign, Pin, Users } from "lucide-react";
-import { Link } from "react-router-dom";
 
-import ListingCardImages from "@/components/ListingCardImages";
-import { Card, CardContent } from "@/components/ui";
+import ListingDetailsCardImages from "@/components/ListingDetailsCardImages";
+import ListingFavoriteButton from "@/components/ListingFavoriteButton";
+import { Card, Separator } from "@/components/ui";
 
-const ListingCard = ({ listing }) => {
+const ListingDetailsCard = ({ listing }) => {
   return (
-    <Link to={`/listings/${listing.id}`}>
-      <Card className="w-[320px]">
-        <ListingCardImages listing={listing} />
-        <CardContent className="flex flex-col gap-2 p-4">
-          <h2 className="mb-2 text-xl font-semibold">{listing.name}</h2>
+    <Card className="mx-auto p-4">
+      <ListingDetailsCardImages listing={listing} />
+      <Separator className="my-4" />
+      <div className="flex justify-between">
+        <div className="flex flex-col gap-2">
+          <h1 className="mb-2 text-2xl font-bold">{listing.name}</h1>
           <div className="flex items-center gap-2">
             <DollarSign className="h-4 w-4 text-primary" />
             <span className="text-muted-foreground">
@@ -30,10 +31,13 @@ const ListingCard = ({ listing }) => {
               {listing.maxGuests} Guests
             </span>
           </div>
-        </CardContent>
-      </Card>
-    </Link>
+        </div>
+        <ListingFavoriteButton listing={listing} />
+      </div>
+      <Separator className="my-4" />
+      <div className="whitespace-pre-line">{listing.description}</div>
+    </Card>
   );
 };
 
-export default ListingCard;
+export default ListingDetailsCard;
