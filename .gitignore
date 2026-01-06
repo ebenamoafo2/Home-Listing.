@@ -40,3 +40,5 @@ jsconfig.json
 .eslintrc.cjs
 .prettierrc.cjs
 
+
+.vercel
